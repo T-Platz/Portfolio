@@ -15,3 +15,24 @@ main {
 .contrast-text {
     color: #ffb69f !important;
 }
+
+::selection {
+    background: #ffb69f;
+    color: #233;
+}
+::-moz-selection {
+    background: #ffb69f;
+    color: #233;
+}
+::-o-selection {
+    background: #ffb69f;
+    color: #233;
+}
+::-ms-selection {
+    background: #ffb69f;
+    color: #233;
+}
+::-webkit-selection {
+    background: #ffb69f;
+    color: #233;
+}
