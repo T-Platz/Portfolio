@@ -41,6 +41,37 @@
                 <h2 class="header center contrast-text">A brief summary of mine</h2>
                 <br><br>
             </div>
+
+            <?php
+                if ($_POST["password"] == "abc") {
+                    echo "<div class=\"row center\">";
+                    echo "<h5 class=\"header col s12 light white-text\">Pass1</h5>";
+                    echo "</div>";
+                } else if ($_POST["password"] == "def") {
+                    echo "<div class=\"row center\">";
+                    echo "<h5 class=\"header col s12 light white-text\">Pass2</h5>";
+                    echo "</div>";
+                } else {
+                    if (isset($_POST["submit"]))
+                        $error = "Invalid password";
+                    ?>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col s8 offset-s2 m4 offset-m4 l4 offset-l4">
+                                <form method="POST" id="login_form">
+                                    <h5 class="contrast-text">Password:</h5>
+                                    <input type="password" name="password" id="password"><br>
+                                    <button class="btn waves-effect waves-light contrast-color black-text" type="submit" name="submit">Submit</button>
+                                </form>
+                            </div>
+                            <div class="col s8 offset-s2 m4 offset-m4 l4 offset-l4">
+                                <?php echo "<br><h6 class=\"s6 red-text darken-4 fade-out\">$error</h6>"; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
         </div>
     </main>
 
