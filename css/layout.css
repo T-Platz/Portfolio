@@ -8,10 +8,20 @@ main {
     flex: 1 0 auto;
 }
 
+.cv1 {
+    pointer-events: none;
+    height: 500px;
+    background-image: url("/data/cv1.png");
+}
+.cv2 {
+    pointer-events: none;
+    height: 500px;
+    background-image: url("/data/cv2.png");
+}
+
 .contrast-color {
     background-color: #ffb69f !important;
 }
-
 .contrast-text {
     color: #ffb69f !important;
 }
