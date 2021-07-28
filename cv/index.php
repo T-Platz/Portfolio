@@ -10,7 +10,7 @@
     <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="/css/layout.css"  media="screen,projection"/>
     
-    <title>Portfolio</title>
+    <title>Timon Platz - CV</title>
 </head>
 
 <body class="blue-grey darken-4">
@@ -42,7 +42,7 @@
                 <br><br>
             </div>
 
-            <!-- Login -->
+            <!-- login -->
             <div class="container">
                 <div class="row">
                     <?php
@@ -50,7 +50,7 @@
                         if (!isset($_SESSION["show_cv"]) || $_SESSION["show_cv"] == -1) { ?>
                             <div class="col s8 offset-s2 m4 offset-m4 l4 offset-l4">
                                 <form method="POST" action="login.php" id="login_form">
-                                    <h5 class="contrast-text">Password:</h5>
+                                    <h5 class="white-text">Password:</h5>
                                     <input type="password" name="password" id="password"><br>
                                     <button class="btn waves-effect waves-light contrast-color black-text" type="submit" name="submit">Submit</button>
                                 </form>
@@ -63,9 +63,7 @@
                                     session_destroy();
                                 }
                         } else {
-                            echo "<div class=\"col s12 cv";
-                            echo $_SESSION["show_cv"];
-                            echo "\"></div>";
+                            echo "<img class=\"col s12\" src=\"/data/cv{$_SESSION["show_cv"]}.png\" width=\"100%\" height=\"auto\">";
                             session_destroy();
                         }
                     ?>
