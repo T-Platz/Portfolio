@@ -2,21 +2,40 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    overflow-y: overlay;
+}
+body::-webkit-scrollbar {
+    width: 5px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #7b7d7f;
+}
+body::-webkit-scrollbar-track {
+    position: absolute;
+    right: -3rem;
+    top: -50rem;
+    background: transparent;
 }
 
 main {
     flex: 1 0 auto;
 }
 
-.cv1 {
+img {
     pointer-events: none;
-    height: 500px;
-    background-image: url("/data/cv1.png");
 }
-.cv2 {
-    pointer-events: none;
-    height: 500px;
-    background-image: url("/data/cv2.png");
+
+input[type=password]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid white;
+    -webkit-box-shadow: 0 1px 0 0 white;
+    box-shadow: 0 1px 0 0 white;
+    font-size:26px;
+    color: white;
+}
+input[type=password]:not(.browser-default) {
+    margin-bottom: 15px;
+    font-size:26px;
+    color: white;
 }
 
 .contrast-color {
@@ -27,22 +46,42 @@ main {
 }
 
 ::selection {
-    background: #ffb69f;
+    background: white;
     color: #233;
 }
 ::-moz-selection {
-    background: #ffb69f;
+    background: white;
     color: #233;
 }
 ::-o-selection {
-    background: #ffb69f;
+    background: white;
     color: #233;
 }
 ::-ms-selection {
-    background: #ffb69f;
+    background: white;
     color: #233;
 }
 ::-webkit-selection {
+    background: white;
+    color: #233;
+}
+.contrast-text::selection {
+    background: #ffb69f;
+    color: #233;
+}
+.contrast-text::-moz-selection {
+    background: #ffb69f;
+    color: #233;
+}
+.contrast-text::-o-selection {
+    background: #ffb69f;
+    color: #233;
+}
+.contrast-text::-ms-selection {
+    background: #ffb69f;
+    color: #233;
+}
+.contrast-text::-webkit-selection {
     background: #ffb69f;
     color: #233;
 }
