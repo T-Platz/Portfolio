@@ -58,12 +58,12 @@
                             <?php
                                 if ($_SESSION["show_cv"] == -1) {
                                     echo "<div class=\"col s8 offset-s2 m4 offset-m4 l4 offset-l4\">";
-                                    echo "<br><h6 class=\"s6 red-text darken-4\">Invalid password</h6>";
+                                    echo "<p><h6 class=\"s6 red-text darken-4 fade-out\">Invalid password</h6></p>";
                                     echo "</div>";
                                     session_destroy();
                                 }
                         } else {
-                            echo "<img class=\"col s12\" src=\"/data/cv{$_SESSION["show_cv"]}.png\" width=\"100%\" height=\"auto\">";
+                            echo "<img class=\"col s12 m10 offset-m1\" src=\"cv.php\" width=\"100%\" height=\"auto\">";
                             session_destroy();
                         }
                     ?>
