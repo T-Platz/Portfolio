@@ -1,9 +1,23 @@
+/*
+ * Misc
+ */
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     overflow-y: overlay;
 }
+main {
+    flex: 1 0 auto;
+}
+img {
+    pointer-events: none;
+}
+
+/*
+ * Make the scrollbar overlay to prevent resizing of the page
+ * Only works with some browsers
+ */
 body::-webkit-scrollbar {
     width: 5px;
 }
@@ -17,14 +31,9 @@ body::-webkit-scrollbar-track {
     background: transparent;
 }
 
-main {
-    flex: 1 0 auto;
-}
-
-img {
-    pointer-events: none;
-}
-
+/*
+ * Change the looks of the password input element
+ */
 input[type=password]:not(.browser-default):focus:not([readonly]) {
     border-bottom: 1px solid white;
     -webkit-box-shadow: 0 1px 0 0 white;
@@ -38,6 +47,9 @@ input[type=password]:not(.browser-default) {
     color: white;
 }
 
+/*
+ * Add another color
+ */
 .contrast-color {
     background-color: #ffb69f !important;
 }
@@ -45,6 +57,9 @@ input[type=password]:not(.browser-default) {
     color: #ffb69f !important;
 }
 
+/*
+ * Change text selection color
+ */
 ::selection {
     background: white;
     color: #233;
@@ -84,4 +99,35 @@ input[type=password]:not(.browser-default) {
 .contrast-text::-webkit-selection {
     background: #ffb69f;
     color: #233;
+}
+
+/*
+ * Fade out element
+ */
+.fade-out {
+    -moz-animation: fadeout 3s linear forwards;
+    -o-animation: fadeout 3s linear forwards;
+    -ms-animation: fadeout 3s linear forwards;
+    -webkit-animation: fadeout 3s linear forwards;
+    animation: fadeout 3s linear forwards;
+}
+@-moz-keyframes fadeout {
+    0% { opacity: 1; visibility: visible;}
+    80% { opacity: 1; visibility: visible;}
+    100% { opacity: 0; visibility: hidden;}
+}
+@-webkit-keyframes fadeout {
+    0% { opacity: 1; visibility: visible;}
+    80% { opacity: 1; visibility: visible;}
+    100% { opacity: 0; visibility: hidden;}
+}
+@-ms-keyframes fadeout {
+    0% { opacity: 1; visibility: visible;}
+    80% { opacity: 1; visibility: visible;}
+    100% { opacity: 0; visibility: hidden;}
+}
+@keyframes fadeout {
+    0% { opacity: 1; visibility: visible;}
+    80% { opacity: 1; visibility: visible;}
+    100% { opacity: 0; visibility: hidden;}
 }
