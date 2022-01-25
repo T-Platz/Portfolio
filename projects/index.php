@@ -118,7 +118,7 @@
     <footer class="page-footer blue-grey darken-4">
         <div class="footer-copyright blue-grey darken-3">
             <div class="container">
-                2021 Timon Platz<a href="mailto:timon.platz@gmail.com" class="contrast-text right">Contact</a>
+                <?php echo date("Y")?> Timon Platz<a href="mailto:timon.platz@gmail.com" class="contrast-text right">Contact</a>
             </div>
         </div>
     </footer>

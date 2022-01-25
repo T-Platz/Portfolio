@@ -40,7 +40,8 @@
                 <br><br>
                 <h2 class="header center contrast-text">Welcome to my website!</h2>
                 <div class="row center">
-                    <h5 class="header col s12 light white-text">Here, you will find some information about myself, as well as a few personal projects</h5>
+                    <h5 class="header col s12 light white-text">I am a computer science student at the Technical University of Munich with a passion for digital ciruit design.</h5>
+                    <h5 class="header col s12 light white-text">Here, you will find some further information about myself, as well as a few personal projects.</h5>
                 </div>
             </div>
         </div>
@@ -50,7 +51,7 @@
     <footer class="page-footer blue-grey darken-4">
         <div class="footer-copyright blue-grey darken-3">
             <div class="container">
-                2021 Timon Platz<a href="mailto:timon.platz@gmail.com" class="contrast-text right">Contact</a>
+                <?php echo date("Y")?> Timon Platz<a href="mailto:timon.platz@gmail.com" class="contrast-text right">Contact</a>
             </div>
         </div>
     </footer>
