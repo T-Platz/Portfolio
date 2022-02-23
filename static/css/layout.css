@@ -131,3 +131,19 @@ input[type=password]:not(.browser-default) {
     80% { opacity: 1; visibility: visible;}
     100% { opacity: 0; visibility: hidden;}
 }
+
+/*
+ * Add a larger margin for headers
+ */
+.header {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/*
+ * Add a background image
+ */
+.circuit-background {
+    background: url('/static/png/circuit.png') no-repeat bottom left;
+    background-size: calc(max(200px, 30vw));
+}
