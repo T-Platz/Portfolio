@@ -145,5 +145,17 @@ input[type=password]:not(.browser-default) {
  */
 .circuit-background {
     background: url('/static/png/circuit.png') no-repeat bottom left;
-    background-size: calc(max(200px, 30vw));
+    background-size: max(200px, 30vw);
+}
+
+/*
+ * Add some text variants
+ */
+.white-text-x-large{
+    color:#fff !important;
+    font-size: x-large;
+}
+.red-text-large{
+    color:#e51c23 !important;
+    font-size: large;
 }
