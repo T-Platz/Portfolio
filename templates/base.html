@@ -10,7 +10,7 @@
     <link rel="stylesheet" media="screen,projection" type="text/css" href="{{ url_for('static', filename='css/layout.css') }}">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <title>Timon Platz - {{ pageName }}</title>
+    <title>Timon Platz - {% block title %}{% endblock %}</title>
 </head>
 
 <body class="blue-grey darken-4">
@@ -19,16 +19,16 @@
         <div class="nav-wrapper container">
             <a href="/" class="brand-logo center contrast-text">Timon Platz</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
-                <li {% if active == 'home' %} class="active" {% endif %} ><a href="{{ url_for('home') }}">Home</a></li>
-                <li {% if active == 'cv' %} class="active" {% endif %} ><a href="{{ url_for('cv') }}">CV</a></li>
-                <li {% if active == 'projects' %} class="active" {% endif %} ><a href="{{ url_for('projects') }}">Projects</a></li>
+                <li {% block homeActive %}{% endblock %} ><a href="{{ url_for('home') }}">Home</a></li>
+                <li {% block cvActive %}{% endblock %} ><a href="{{ url_for('cv') }}">CV</a></li>
+                <li {% block projectsActive %}{% endblock %} ><a href="{{ url_for('projects') }}">Projects</a></li>
             </ul>
 
             <a href="." data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="sidenav blue-grey darken-3" id="mobile-demo">
-                <li {% if active == 'home' %} class="active" {% endif %} ><a href="{{ url_for('home') }}" class="white-text">Home</a></li>
-                <li {% if active == 'cv' %} class="active" {% endif %} ><a href="{{ url_for('cv') }}" class="white-text">CV</a></li>
-                <li {% if active == 'projects' %} class="active" {% endif %} ><a href="{{ url_for('projects') }}" class="white-text">Projects</a></li>
+                <li {{ self.homeActive() }} ><a href="{{ url_for('home') }}" class="white-text">Home</a></li>
+                <li {{ self.cvActive() }} ><a href="{{ url_for('cv') }}" class="white-text">CV</a></li>
+                <li {{ self.projectsActive() }} ><a href="{{ url_for('projects') }}" class="white-text">Projects</a></li>
             </ul>
         </div>
     </nav>
