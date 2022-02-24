@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, session, redirect, url_for
+from werkzeug.security import check_password_hash, generate_password_hash
 from datetime import datetime
 import json
 
@@ -20,6 +21,21 @@ def cv():
     return render_template('cv.html')
 
 
+@app.route('/auth/', methods=['POST'])
+def auth():
+    session.clear()
+    hashed = generate_password_hash('DevPwd')
+    password = request.form.get('password', None)
+    if password is None or password == '':
+        pass
+    elif check_password_hash(hashed, password):
+        session['auth'] = True
+    else:
+        session['auth'] = False
+
+    return redirect(url_for('cv'))
+
+
 @app.route('/projects/', defaults={'tag': None})
 @app.route('/projects/<tag>/')
 def projects(tag):
@@ -30,4 +46,5 @@ def projects(tag):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.secret_key = 'DevKey'
+    app.run(debug=True, host='0.0.0.0')
