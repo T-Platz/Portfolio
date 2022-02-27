@@ -1,4 +1,4 @@
-from app import app
+from Portfolio import app
 from flask import render_template, request, session, redirect, url_for
 from werkzeug.security import check_password_hash
 from datetime import datetime
