@@ -2,26 +2,26 @@
   {
     "title": "Data compression on FPGAs",
     "description": "For by bachelor's thesis, I implemented the LZSS lossless data compression algorithm in VHDL. The implementation adheres to the Intel Avalon Streaming Interface and is to be used as an accelerator for the Configurable Network Protocol Accelerator framework. Working on this project, I have gained a lot of insights into FPGAs and digital circuit design.",
-    "github": "https://github.com/T-Platz/LZSS-VHDL",
+    "links": {"github": "https://github.com/T-Platz/LZSS-VHDL", "thesis": "/data/Thesis.pdf"},
     "tags": ["VHDL", "FPGA"]
   },
   {
     "title": "A 'cat' clone",
     "description": "In one of my earlier projects, I created a clone of the well-known Unix tool 'cat' in x86_64 assembly. While the main motivation for this project was to write a program in assembly without the help of any higher-level language like C, I also learned a lot about system calls and the loading process of programs.",
-    "github": "https://github.com/T-Platz/cat-asm",
+    "links": {"github": "https://github.com/T-Platz/cat-asm"},
     "tags": ["x86_64"]
   },
   {
     "title": "L4 microkernels",
     "description": "As part of a practical course in university, we were given the task to port the Fiasco.OC microkernel to different SBCs. In a team of three students, we created several C++ drivers which allowed for the microkernel to run on the NanoPC-T3+ SBC. This SBC is based on the S5P6818 SoC, which the drivers were written for.",
-    "github": "https://github.com/T-Platz/S5P6818-Fiasco.OC",
+    "links": {"github": "https://github.com/T-Platz/S5P6818-Fiasco.OC"},
     "tags": ["C++"]
   },
   {
     "title": "A webpage",
     "description": "Last but not least, I have created the website you are looking at right now with the help of the Flask and Materialize frameworks.",
     "languages": "Python, HTML",
-    "github": "https://github.com/T-Platz/Portfolio",
+    "links": {"github": "https://github.com/T-Platz/Portfolio"},
     "tags": ["Python", "HTML", "Web"]
   }
 ]

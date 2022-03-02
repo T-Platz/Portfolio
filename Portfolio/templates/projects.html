@@ -37,14 +37,18 @@
                             <p>{{ project['description'] }}</p>
                         {% endif %}
                     </div>
-                    {% if 'github' in project %}
+                    {% if 'links' in project or 'tags' in project %}
                         <div class="card-action">
-                            <a href="{{ project['github'] }}" class="contrast-text">GitHub</a>
-                            {% if 'tags' in project %}
+                            <span>
+                                {% for link in project['links'] %}
+                                    <a href="{{ project['links'][link] }}" class="contrast-text">{{ link }}</a>
+                                {% endfor %}
+                            </span>
+                            <span style="float:right;">
                                 {% for tag in project['tags'] %}
                                     <a href="{{ url_for('projects', tag=tag) }}" class="contrast-text">{{ tag }}</a>
                                 {% endfor %}
-                            {% endif %}
+                            </span>
                         </div>
                     {% endif %}
                 </div>
