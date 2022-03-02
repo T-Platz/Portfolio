@@ -1,5 +1,5 @@
 from Portfolio import app
-from flask import render_template, request, session, redirect, url_for
+from flask import render_template, request, session, redirect, url_for, send_from_directory, abort
 from werkzeug.security import check_password_hash
 from datetime import datetime
 import json
@@ -43,3 +43,11 @@ def projects(tag):
     with app.open_resource('static/json/projects.json') as file:
         projectsList = [p for p in json.load(file) if tag is None or ('tags' in p and tag in p['tags'])]
     return render_template('projects.html', projectsList=projectsList, tag=tag)
+
+
+@app.route('/data/Thesis.pdf')
+def thesis():
+    try:
+        return send_from_directory(directory=app.config['DATA_FOLDER'], path='Thesis.pdf', as_attachment=False)
+    except FileNotFoundError:
+        abort(404)
