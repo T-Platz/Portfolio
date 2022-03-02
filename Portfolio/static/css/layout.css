@@ -144,7 +144,7 @@ input[type=password]:not(.browser-default) {
  * Add a background image
  */
 .circuit-background {
-    background: url('/Portfolio/staticatic/png/circuit.png') no-repeat bottom left;
+    background: url('../png/circuit.png') no-repeat bottom left;
     background-size: max(200px, 30vw);
 }
 
