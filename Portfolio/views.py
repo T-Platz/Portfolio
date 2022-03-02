@@ -7,6 +7,7 @@ import json
 
 @app.context_processor
 def inject_now():
+    # make the 'now' variable available in the templates to insert the current year in the footer
     return {'now': datetime.utcnow()}
 
 
@@ -30,8 +31,10 @@ def auth():
     if password is None or password == '':
         pass
     elif check_password_hash(password_hash, password):
+        # used to display the cv on the /cv/ page
         session['auth'] = True
     else:
+        # used to display an error message
         session['auth'] = False
 
     return redirect(url_for('cv'))
@@ -40,6 +43,7 @@ def auth():
 @app.route('/projects/', defaults={'tag': None})
 @app.route('/projects/<tag>/')
 def projects(tag):
+    # filter the projects from the 'projects.json' file is tag is defined
     with app.open_resource('static/json/projects.json') as file:
         projectsList = [p for p in json.load(file) if tag is None or ('tags' in p and tag in p['tags'])]
     return render_template('projects.html', projectsList=projectsList, tag=tag)
@@ -48,6 +52,7 @@ def projects(tag):
 @app.route('/data/Thesis.pdf')
 def thesis():
     try:
+        # opens the 'Thesis.pdf' file in the browser
         return send_from_directory(directory=app.config['DATA_FOLDER'], path='Thesis.pdf', as_attachment=False)
     except FileNotFoundError:
         abort(404)
