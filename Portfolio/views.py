@@ -1,5 +1,5 @@
 from Portfolio import app
-from flask import render_template, request, session, redirect, url_for, send_from_directory, abort
+from flask import render_template, request, session, flash, redirect, url_for, send_from_directory, abort
 from werkzeug.security import check_password_hash
 from datetime import datetime
 import json
@@ -34,8 +34,7 @@ def auth():
         # used to display the cv on the /cv/ page
         session['auth'] = True
     else:
-        # used to display an error message
-        session['auth'] = False
+        flash('Invalid password')
 
     return redirect(url_for('cv'))
 
