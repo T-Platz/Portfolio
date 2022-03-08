@@ -17,21 +17,51 @@
     <!-- navbar -->
     <nav class="blue-grey darken-3">
         <div class="nav-wrapper container">
-            <a href="/" class="brand-logo center contrast-text">Timon Platz</a>
-            <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <!-- links on the left -->
+            <ul class="left hide-on-med-and-down">
                 <li {% block homeActive %}{% endblock %} ><a href="{{ url_for('home') }}">Home</a></li>
                 <li {% block cvActive %}{% endblock %} ><a href="{{ url_for('cv') }}">CV</a></li>
                 <li {% block projectsActive %}{% endblock %} ><a href="{{ url_for('projects') }}">Projects</a></li>
             </ul>
 
-            <a href="." data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="sidenav blue-grey darken-3" id="mobile-demo">
-                <li {{ self.homeActive() }} ><a href="{{ url_for('home') }}" class="white-text">Home</a></li>
-                <li {{ self.cvActive() }} ><a href="{{ url_for('cv') }}" class="white-text">CV</a></li>
-                <li {{ self.projectsActive() }} ><a href="{{ url_for('projects') }}" class="white-text">Projects</a></li>
+            <!-- text in the center -->
+            <a href="{{ url_for('home') }}" class="brand-logo center contrast-text">Timon Platz</a>
+
+            <!-- logos on the right -->
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="https://github.com/T-Platz">
+                        <img src="{{ url_for('static', filename='png/github.png') }}" alt="" class="logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/timon-platz/">
+                        <img src="{{ url_for('static', filename='png/linkedin.png') }}" alt="" class="logo">
+                    </a>
+                </li>
             </ul>
+
+            <!-- trigger for mobile -->
+            <a href="#" data-target="sidenav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         </div>
     </nav>
+
+    <!-- sidenav for mobile -->
+    <ul class="sidenav blue-grey darken-3" id="sidenav-mobile">
+        <li {{ self.homeActive() }} ><a href="{{ url_for('home') }}" class="white-text">Home</a></li>
+        <li {{ self.cvActive() }} ><a href="{{ url_for('cv') }}" class="white-text">CV</a></li>
+        <li {{ self.projectsActive() }} ><a href="{{ url_for('projects') }}" class="white-text">Projects</a></li>
+        <li>
+            <a href="https://github.com/T-Platz">
+                <img src="{{ url_for('static', filename='png/github.png') }}" alt="" class="logo">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/timon-platz/">
+                <img src="{{ url_for('static', filename='png/linkedin.png') }}" alt="" class="logo">
+            </a>
+        </li>
+    </ul>
 
     <!-- main -->
     {% block main %}
