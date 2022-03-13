@@ -12,7 +12,7 @@
 
         <div class="container">
             <div class="row">
-                <!-- login -->
+                <!-- login form -->
                 {% if 'auth' not in session or not session['auth'] %}
                     <div class="col s8 offset-s2 m4 offset-m4 l4 offset-l4">
                         <!-- login form-->
@@ -21,7 +21,7 @@
                             <button class="btn waves-effect waves-light contrast-color black-text" type="submit" name="submit">Submit</button>
                         </form>
 
-                        <!-- potential error message -->
+                        <!-- "invalid password" error message -->
                         {% with messages = get_flashed_messages() %}
                             {% if messages %}
                                 {% for message in messages %}
@@ -31,10 +31,10 @@
                         {% endwith %}
                     </div>
 
-                <!-- cv -->
+                <!-- generic error message -->
                 {% else %}
-                    <div class="col s8 offset-s2 m10 offset-m1 l6 offset-l3">
-                        CV not present yet :(
+                    <div class="col s8 offset-s2 m10 offset-m1 l6 offset-l3 white-text">
+                        Password correct, but you should have been redirected...
                     </div>
                 {% endif %}
             </div>

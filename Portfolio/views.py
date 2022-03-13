@@ -5,9 +5,9 @@ from datetime import datetime
 import json
 
 
+# make the 'now' variable available in the templates to insert the current year in the footer
 @app.context_processor
 def inject_now():
-    # make the 'now' variable available in the templates to insert the current year in the footer
     return {'now': datetime.utcnow()}
 
 
@@ -18,7 +18,10 @@ def home():
 
 @app.route('/cv/')
 def cv():
-    return render_template('cv.html')
+    if 'auth' in session and session['auth']:
+        return redirect(url_for('data', file='CV.pdf'))
+    else:
+        return render_template('cv.html')
 
 
 @app.route('/auth/', methods=['POST'])
@@ -48,10 +51,17 @@ def projects(tag):
     return render_template('projects.html', projectsList=projectsList, tag=tag)
 
 
-@app.route('/data/Thesis.pdf')
-def thesis():
+@app.route('/data/', defaults={'file': None})
+@app.route('/data/<file>')
+def data(file):
+    if file is None:
+        abort(403)
+
+    if file == 'CV.pdf' and ('auth' not in session or not session['auth']):
+        abort(403)
+
     try:
         # opens the 'Thesis.pdf' file in the browser
-        return send_from_directory(directory=app.config['DATA_FOLDER'], path='Thesis.pdf', as_attachment=False)
+        return send_from_directory(directory=app.config['DATA_FOLDER'], path=file, as_attachment=False)
     except FileNotFoundError:
         abort(404)
