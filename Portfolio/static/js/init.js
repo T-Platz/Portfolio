@@ -1,5 +1,3 @@
-(function($) {
-    $(function() {
-        $('.sidenav').sidenav();
-    });
-})(jQuery);
+document.addEventListener('DOMContentLoaded', function() {
+    M.Sidenav.init(document.querySelectorAll('.sidenav'));
+});
